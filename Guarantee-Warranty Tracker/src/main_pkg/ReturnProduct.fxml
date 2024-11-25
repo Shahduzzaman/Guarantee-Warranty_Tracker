@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="586.0" prefWidth="764.0" style="-fx-background-color: LIGHTCYAN;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main_pkg.ReturnProductController">
+   <children>
+      <Label layoutX="245.0" layoutY="1.0" text="Return Product">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
+      <Line endX="632.0" layoutX="116.0" layoutY="44.0" startX="-100.0" strokeWidth="2.0" />
+      <Label fx:id="clockLabel" layoutX="26.0" layoutY="557.0" text="Clock">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Label>
+      <Button fx:id="Return" layoutX="631.0" layoutY="542.0" mnemonicParsing="false" onAction="#Return" prefHeight="30.0" prefWidth="122.0" style="-fx-background-radius: 88; -fx-background-color: Red;" text="Return" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <TableView fx:id="SoldProductTable" editable="true" layoutX="15.0" layoutY="91.0" prefHeight="190.0" prefWidth="554.0">
+         <columns>
+            <TableColumn fx:id="T1ProductName" prefWidth="161.0" text="Product Name" />
+            <TableColumn fx:id="T1Number" prefWidth="121.0" text="Sl Number" />
+            <TableColumn fx:id="T1BuyDate" prefWidth="130.0" text="Buying Date" />
+            <TableColumn fx:id="T1SellDate" prefWidth="141.0" text="Selling Date" />
+         </columns>
+      </TableView>
+      <TableView fx:id="RetuenedProductTable" editable="true" layoutX="15.0" layoutY="343.0" prefHeight="190.0" prefWidth="738.0">
+         <columns>
+            <TableColumn fx:id="T2ProductName" prefWidth="161.0" text="Product Name" />
+            <TableColumn fx:id="T2Number" prefWidth="119.0" text="Sl Number" />
+            <TableColumn fx:id="T2BuyDate" prefWidth="156.0" text="Buying Date" />
+            <TableColumn fx:id="T2SellDate" prefWidth="155.0" text="Selling Date" />
+            <TableColumn fx:id="T2ReturnDate" prefWidth="146.0" text="Returned Date" />
+         </columns>
+      </TableView>
+      <Label layoutX="14.0" layoutY="309.0" text="Returned Products List:">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="DatePicker" layoutX="579.0" layoutY="118.0" />
+      <Button layoutX="593.0" layoutY="217.0" mnemonicParsing="false" onAction="#addReturnProduct" prefHeight="56.0" prefWidth="147.0" style="-fx-background-radius: 80;" text="Add to Returned Products List" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="593.0" layoutY="159.0" mnemonicParsing="false" onAction="#viewDetails" prefHeight="25.0" prefWidth="147.0" style="-fx-background-radius: 80;" text="View Details">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Line endX="100.0" layoutX="649.0" layoutY="203.0" startX="-68.0" />
+      <Label layoutX="244.0" layoutY="60.0" text="Enter Serial Number :">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="SerialNumber" layoutX="379.0" layoutY="55.0" prefHeight="29.0" prefWidth="174.0">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </TextField>
+      <Button layoutX="569.0" layoutY="55.0" mnemonicParsing="false" onAction="#searchButton" prefHeight="25.0" prefWidth="83.0" text="Search">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Label layoutX="228.0" layoutY="313.0" text="Enter Serial Number :">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="SerialNumber1" layoutX="353.0" layoutY="308.0" prefHeight="29.0" prefWidth="174.0">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </TextField>
+      <Button layoutX="552.0" layoutY="308.0" mnemonicParsing="false" onAction="#searchButton1" prefHeight="25.0" prefWidth="83.0" text="Search">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="661.0" layoutY="308.0" mnemonicParsing="false" onAction="#deleteButton" prefHeight="30.0" prefWidth="83.0" text="Delete">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Line endX="632.0" layoutX="116.0" layoutY="293.0" startX="-100.0" strokeWidth="2.0" />
+      <Label layoutX="26.0" layoutY="56.0" text="Sold Products List:">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

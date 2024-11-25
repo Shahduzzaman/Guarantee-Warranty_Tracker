@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: LIGHTCYAN;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main_pkg.AddNewProductController">
+   <children>
+      <Label layoutX="165.0" layoutY="111.0" text="Name:">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Label>
+      <Label layoutX="163.0" layoutY="157.0" text="SL No. :">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Label>
+      <Label layoutX="163.0" layoutY="202.0" prefHeight="17.0" prefWidth="35.0" text="Date:">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Label>
+      <Label layoutX="175.0" layoutY="19.0" text="Add New Product">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
+      <Line endX="470.0" layoutX="115.0" layoutY="73.0" startX="-100.0" strokeWidth="2.0" />
+      <TextField fx:id="NameTextField" layoutX="220.0" layoutY="107.0" prefHeight="25.0" prefWidth="209.0" />
+      <TextField fx:id="SlNoTextField" layoutX="220.0" layoutY="153.0" prefHeight="25.0" prefWidth="209.0" />
+      <DatePicker fx:id="DatePicker" layoutX="220.0" layoutY="198.0" prefHeight="25.0" prefWidth="209.0" />
+      <Button layoutX="167.0" layoutY="246.0" mnemonicParsing="false" onAction="#addProduct" prefHeight="30.0" prefWidth="268.0" style="-fx-background-color: LightGreen; -fx-background-radius: 88;" text="Add Product">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font>
+      </Button>
+      <Label fx:id="clockLabel" layoutX="65.0" layoutY="351.0" text="Clock">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Label>
+      <Button fx:id="Return" layoutX="481.0" layoutY="345.0" mnemonicParsing="false" onAction="#Return" prefHeight="30.0" prefWidth="96.0" style="-fx-background-radius: 88; -fx-background-color: Red;" text="Return" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font></Button>
+   </children>
+</AnchorPane>
