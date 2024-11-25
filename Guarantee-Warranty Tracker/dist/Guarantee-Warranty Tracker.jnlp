@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="Guarantee-Warranty_Tracker.jar" size="94573" download="eager" />
+    <jar href="Guarantee-Warranty_Tracker.jar" size="94574" download="eager" />
   </resources>
   <jfx:javafx-desc  width="800" height="600" main-class="main_pkg.Main"  name="Guarantee-Warranty Tracker" />
   <update check="always"/>
