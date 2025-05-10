@@ -11,7 +11,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="538.0" prefWidth="600.0" style="-fx-background-color: LIGHTCYAN;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main_pkg.SellProductController">
+<AnchorPane id="AnchorPane" prefHeight="592.0" prefWidth="600.0" style="-fx-background-color: LIGHTCYAN;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main_pkg.SellProductController">
    <children>
       <Label layoutX="215.0" layoutY="4.0" text="Sell Product">
          <font>
@@ -19,14 +19,14 @@
          </font>
       </Label>
       <Line endX="469.0" layoutX="115.0" layoutY="44.0" startX="-100.0" strokeWidth="2.0" />
-      <TableView fx:id="ProductTable" editable="true" layoutX="22.0" layoutY="95.0" prefHeight="149.0" prefWidth="554.0">
+      <TableView fx:id="ProductTable" editable="true" layoutX="22.0" layoutY="129.0" prefHeight="149.0" prefWidth="554.0">
         <columns>
           <TableColumn fx:id="T1ProductName" prefWidth="172.0" text="Product Name" />
           <TableColumn fx:id="T1Number" minWidth="0.0" prefWidth="227.0" text="SL Number" />
             <TableColumn fx:id="T1Date" prefWidth="154.0" text="Date" />
         </columns>
       </TableView>
-      <TableView fx:id="SoldProductTable" editable="true" layoutX="22.0" layoutY="292.0" prefHeight="200.0" prefWidth="554.0">
+      <TableView fx:id="SoldProductTable" editable="true" layoutX="24.0" layoutY="356.0" prefHeight="185.0" prefWidth="554.0">
         <columns>
           <TableColumn fx:id="T2ProductName" prefWidth="147.0" text="Product Name" />
           <TableColumn fx:id="T2Number" prefWidth="166.0" text="Sl Number" />
@@ -34,7 +34,7 @@
             <TableColumn fx:id="T2SellDate" prefWidth="121.0" text="Selling Date" />
         </columns>
       </TableView>
-      <Button fx:id="SellProduct" layoutX="344.0" layoutY="255.0" mnemonicParsing="false" onAction="#sellProduct" prefHeight="30.0" prefWidth="83.0" text="Sold">
+      <Button fx:id="SellProduct" layoutX="415.0" layoutY="92.0" mnemonicParsing="false" onAction="#sellProduct" prefHeight="30.0" prefWidth="83.0" text="Sold">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
@@ -42,13 +42,13 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <DatePicker fx:id="DatePicker" layoutX="138.0" layoutY="258.0" />
-      <Label fx:id="clockLabel" layoutX="22.0" layoutY="511.0" text="Clock">
+      <DatePicker fx:id="DatePicker" layoutX="207.0" layoutY="92.0" prefHeight="29.0" prefWidth="196.0" />
+      <Label fx:id="clockLabel" layoutX="24.0" layoutY="560.0" text="Clock">
          <font>
             <Font name="System Bold Italic" size="12.0" />
          </font>
       </Label>
-      <Button fx:id="Return" layoutX="463.0" layoutY="499.0" mnemonicParsing="false" onAction="#Return" prefHeight="30.0" prefWidth="122.0" style="-fx-background-radius: 88; -fx-background-color: Red;" text="Return" textFill="WHITE">
+      <Button fx:id="Return" layoutX="465.0" layoutY="548.0" mnemonicParsing="false" onAction="#Return" prefHeight="30.0" prefWidth="122.0" style="-fx-background-radius: 88; -fx-background-color: Red;" text="Return" textFill="WHITE">
          <font>
             <Font name="System Bold Italic" size="14.0" />
          </font>
@@ -56,23 +56,36 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Label layoutX="83.0" layoutY="59.0" text="Enter Serial Number :">
+      <Label layoutX="82.0" layoutY="62.0" text="Enter Serial Number :">
          <font>
             <Font size="13.0" />
          </font>
       </Label>
-      <TextField fx:id="SerialNumber" layoutX="208.0" layoutY="54.0" prefHeight="29.0" prefWidth="196.0">
+      <TextField fx:id="SerialNumber" layoutX="207.0" layoutY="57.0" prefHeight="29.0" prefWidth="196.0">
          <font>
             <Font size="13.0" />
          </font>
       </TextField>
-      <Button layoutX="435.0" layoutY="53.0" mnemonicParsing="false" onAction="#searchButton" prefHeight="25.0" prefWidth="83.0" text="Search">
+      <Button layoutX="415.0" layoutY="57.0" mnemonicParsing="false" onAction="#searchButton" prefHeight="25.0" prefWidth="83.0" text="Search">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
+      </Button>
+      <Label layoutX="94.0" layoutY="95.0" text="Enter Selling Date :">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="NameTextField" layoutX="24.0" layoutY="288.0" prefHeight="25.0" prefWidth="174.0" />
+      <TextField fx:id="SlNoTextField" layoutX="215.0" layoutY="288.0" prefHeight="25.0" prefWidth="174.0" />
+      <DatePicker fx:id="DatePicker2" layoutX="402.0" layoutY="288.0" />
+      <Button fx:id="Update" layoutX="253.0" layoutY="320.0" mnemonicParsing="false" onAction="#Update" style="-fx-background-color: Red;" text="Update Product" textFill="#f8f8f8">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
       </Button>
    </children>
 </AnchorPane>

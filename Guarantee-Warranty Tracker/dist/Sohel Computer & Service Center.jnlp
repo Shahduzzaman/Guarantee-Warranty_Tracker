@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="Sohel Computer & Service Center.jnlp">
+  <information>
+    <title>Sohel Computer & Service Center</title>
+    <vendor>Md Shahduzzaman</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="Guarantee-Warranty_Tracker.jar" size="97110" download="eager" />
+  </resources>
+  <jfx:javafx-desc  width="800" height="600" main-class="main_pkg.Main"  name="Sohel Computer & Service Center" />
+  <update check="always"/>
+</jnlp>

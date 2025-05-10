@@ -1,17 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package main_pkg;
 
 import java.io.EOFException;
-import java.io.Externalizable;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.ObjectInput;
 import java.io.ObjectInputStream;
-import java.io.ObjectOutput;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -19,14 +13,22 @@ import java.util.ArrayList;
 import java.util.List;
 import javafx.collections.ObservableList;
 
-/**
- *
- * @author mdsha
- */
-public class NewProduct implements Serializable{
+public class NewProduct implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     private String Name;
     private String Number;
     private LocalDate Date;
+
+    // Fixed directory path
+    private static final String DIRECTORY = "Z:\\My Drive\\Sohel Computer & Service Center\\";
+
+
+    public NewProduct(String Name, String Number, LocalDate Date) {
+        this.Name = Name;
+        this.Number = Number;
+        this.Date = Date;
+    }
 
     public String getName() {
         return Name;
@@ -52,67 +54,80 @@ public class NewProduct implements Serializable{
         this.Date = Date;
     }
 
-    public NewProduct(String Name, String Number, LocalDate Date) {
-        this.Name = Name;
-        this.Number = Number;
-        this.Date = Date;
-    }
-
     @Override
     public String toString() {
         return "NewProduct{" + "Name=" + Name + ", Number=" + Number + ", Date=" + Date + '}';
     }
-    
-    //-------------File read & write
+
+    // Utility method to get the full path
+    private static String getFullPath(String fileName) {
+        if (!fileName.endsWith(".bin")) {
+            fileName += ".bin";
+        }
+        File dir = new File(DIRECTORY);
+        if (!dir.exists()) {
+            dir.mkdirs();
+        }
+        return DIRECTORY + fileName;
+    }
+
+    // Read objects from file
     public static List<Object> readObjectsFromFile(String fileName) {
-           List<Object> objects = new ArrayList<>();
-           try (FileInputStream fis = new FileInputStream(fileName);
-                ObjectInputStream ois = new ObjectInputStream(fis)) {
-               while (true) {
-                   try {
-                       Object obj = ois.readObject();
-                       if (obj != null) {
-                           objects.add(obj);
-                       }
-                   } catch (EOFException e) {
-                       break; 
-                   }
-               }
-           } catch (IOException | ClassNotFoundException ex) {
-               ex.printStackTrace();
-           }
-           return objects;
-           }
-    
-        public static boolean writeObjectsToFile(List<Object> objects, String fileName) {
-           try (FileOutputStream fos = new FileOutputStream(fileName);
-                ObjectOutputStream oos = new ObjectOutputStream(fos)) {
-               for (Object obj : objects) {
-                   oos.writeObject(obj);
-               }
-               return true;
-           } catch (IOException ex) {
-               ex.printStackTrace();
-               return false;
-           }
-       }
-        public static boolean addNewProduct(NewProduct items, String fileName) {
-           List<Object> product = readObjectsFromFile(fileName);
-           product.add(items);
-           return writeObjectsToFile(product, fileName);
-       }
-        
-        public static void updateFile(ObservableList<NewProduct> products, String fileName) {
-            try (ObjectOutputStream output = new ObjectOutputStream(new FileOutputStream(fileName))) {
-                for (NewProduct product : products) {
-                    output.writeObject(product);
+        List<Object> objects = new ArrayList<>();
+        String fullPath = getFullPath(fileName);
+
+        File file = new File(fullPath);
+        if (!file.exists()) return objects;
+
+        try (FileInputStream fis = new FileInputStream(fullPath);
+             ObjectInputStream ois = new ObjectInputStream(fis)) {
+            while (true) {
+                try {
+                    Object obj = ois.readObject();
+                    if (obj != null) {
+                        objects.add(obj);
+                    }
+                } catch (EOFException e) {
+                    break;
                 }
-            } catch (IOException e) {
-            e.printStackTrace();
             }
-}
-        private static final long serialVersionUID = 1L;
-       
-    
-    
+        } catch (IOException | ClassNotFoundException ex) {
+            ex.printStackTrace();
+        }
+        return objects;
+    }
+
+    // Write objects to file
+    public static boolean writeObjectsToFile(List<Object> objects, String fileName) {
+        String fullPath = getFullPath(fileName);
+        try (FileOutputStream fos = new FileOutputStream(fullPath);
+             ObjectOutputStream oos = new ObjectOutputStream(fos)) {
+            for (Object obj : objects) {
+                oos.writeObject(obj);
+            }
+            return true;
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            return false;
+        }
+    }
+
+    // Add new product
+    public static boolean addNewProduct(NewProduct item, String fileName) {
+        List<Object> products = readObjectsFromFile(fileName);
+        products.add(item);
+        return writeObjectsToFile(products, fileName);
+    }
+
+    // Update entire file
+    public static void updateFile(ObservableList<NewProduct> products, String fileName) {
+        String fullPath = getFullPath(fileName);
+        try (ObjectOutputStream output = new ObjectOutputStream(new FileOutputStream(fullPath))) {
+            for (NewProduct product : products) {
+                output.writeObject(product);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
